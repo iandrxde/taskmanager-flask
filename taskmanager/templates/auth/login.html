@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}
+    Login
+{% endblock title %}
+{% block
+    content %}
+    <div class="position-absolute bottom-0 w-100 z-0">
+        <svg width="100%"
+             height="100%"
+             id="svg"
+             viewBox="0 0 1440 490"
+             xmlns="http://www.w3.org/2000/svg"
+             class="transition duration-300 ease-in-out delay-150">
+            <path d="M 0,500 C 0,500 0,166 0,166 C 103.9025641025641,167.96666666666667 207.8051282051282,169.93333333333334 282,163 C 356.1948717948718,156.06666666666666 400.68205128205125,140.23333333333335 477,147 C 553.3179487179488,153.76666666666665 661.4666666666667,183.13333333333335 732,187 C 802.5333333333333,190.86666666666665 835.451282051282,169.23333333333335 922,177 C 1008.548717948718,184.76666666666665 1148.7282051282052,221.93333333333334 1244,225 C 1339.2717948717948,228.06666666666666 1389.6358974358973,197.03333333333333 1440,166 C 1440,166 1440,500 1440,500 Z" stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="0.53" class="wave transition-all duration-300 ease-in-out delay-150 path-0">
+            </path>
+            <path d="M 0,500 C 0,500 0,333 0,333 C 100.88205128205126,301.85897435897436 201.76410256410253,270.71794871794873 275,278 C 348.23589743589747,285.28205128205127 393.82564102564106,330.98717948717945 459,347 C 524.1743589743589,363.01282051282055 608.9333333333334,349.33333333333337 687,337 C 765.0666666666666,324.66666666666663 836.4410256410256,313.6794871794871 933,326 C 1029.5589743589744,338.3205128205129 1151.302564102564,373.94871794871796 1240,379 C 1328.697435897436,384.05128205128204 1384.3487179487179,358.525641025641 1440,333 C 1440,333 1440,500 1440,500 Z" stroke="none" stroke-width="0" fill="#abb8c3" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-1">
+            </path>
+        </svg>
+    </div>
+    <div class="container d-flex align-items-center justify-content-center vh-100 position-relative z-1">
+        <div class="row border shadow p-5 bg-white">
+            <h1>Iniciar Sesion</h1>
+            <form action="" method="post">
+                <div class="form-group mt-3">
+                    <label for="username" class="form-label">Nombre de usuario:</label>
+                    <input type="text"
+                           name="username"
+                           id="username"
+                           class="form-control"
+                           required
+                           minlength="4"
+                           maxlength="20" />
+                    <div class="form-group mt-3">
+                        <label for="username" class="form-label">Contraseña:</label>
+                        <input type="password"
+                               name="password"
+                               id="password"
+                               class="form-control"
+                               required
+                               minlength="8"
+                               maxlength="30" />
+                    </div>
+                    <div class="text-center mt-3">
+                        <input type="submit" value="Iniciar Sesion" class="btn btn-primary" />
+                    </div>
+                    <div class="text-center mt-3">
+                    <span>No tienes una cuenta?</span> <a href="{{url_for('auth.register')}}">Registrate</a>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    {% endblock content %}

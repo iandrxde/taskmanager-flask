@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block title %} Tareas {% endblock title %} {% block
+content %}
+<div class="container" style="margin-top: 70px">
+  <div class="row align-items-center justify-content-center">
+    <h1 class="col">Lista de tareas:</h1>
+    <a href="{{url_for('taskmanager.create')}}" class="col">
+      <button class="btn btn-success">Crear Tarea</button>
+    </a>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col">Tareas</th>
+        <th class="col">Estado</th>
+        <th class="col" colspan="2">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks | reverse %} {% if task.created_by == g.user.id %}
+      <tr>
+        <td>
+          <h5>
+            <h1>{{ task.title }}</h1>
+            <p>{{ task.description }}</p>
+          </h5>
+        </td>
+        <td>
+          {% if task.state == False %}
+          <span class="text-warning">Incompleto</span>
+          {% else %}
+          <span class="text-success">Completo</span>
+
+          {% endif %}
+        </td>
+        <td>
+          <a
+            href="{{url_for('taskmanager.edit', id= task.id)}}"
+            class="btn btn-info"
+            >Editar</a
+          >
+          <a
+            href="{{url_for('taskmanager.delete', id= task.id)}}"
+            class="btn btn-danger"
+            >Eliminar</a
+          >
+        </td>
+      </tr>
+      {% endif %} {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
